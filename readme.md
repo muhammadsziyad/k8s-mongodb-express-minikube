@@ -2,16 +2,21 @@
 Kubernetes MongoDB Project
 
 ```mermaid
-graph TD
-    A[User] -->|Accesses Application| B[Service]
-    B -->|Routes Traffic| C[Express Pod]
-    C -->|Connects to| D[MongoDB Pod]
-    
-    subgraph Minikube Cluster
+flowchart LR
+    A[Minikube] -->|Manages| B[Kubernetes Cluster]
+    B -->|Deploys| C[MongoDB]
+    B -->|Deploys| D[Express Application]
+    C -->|Stores Data| E[Database]
+    D -->|Uses Data from| C
+    B -->|Exposes via| F[Service]
+
+    subgraph Kubernetes Deployment
         B
         C
         D
+        F
     end
+
 
 
 ```
