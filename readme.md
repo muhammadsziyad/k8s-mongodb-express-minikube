@@ -1,6 +1,21 @@
 ## Project Name
 Kubernetes MongoDB Project
 
+```mermaid
+graph TD
+    A[User] -->|Accesses Application| B[Service]
+    B -->|Routes Traffic| C[Express Pod]
+    C -->|Connects to| D[MongoDB Pod]
+    
+    subgraph Minikube Cluster
+        B
+        C
+        D
+    end
+
+
+```
+
 ## Project Description
 This project sets up a Kubernetes environment with MongoDB and mongo-express. MongoDB is a NoSQL database used for storing data, while mongo-express is a web-based MongoDB admin interface. The project uses Minikube for local Kubernetes cluster management and HyperKit as the hypervisor for running Minikube on macOS.
 
